@@ -1,0 +1,18 @@
+@page "/events"
+@using EventEase.Data
+@code {
+    private List<EventModel> events = new()
+    {
+        new EventModel { Id=1, Name="Tech Conference", Date=DateTime.Now.AddDays(10), Location="Riyadh" },
+        new EventModel { Id=2, Name="Music Festival", Date=DateTime.Now.AddDays(20), Location="Jeddah" },
+        new EventModel { Id=3, Name="Art Expo", Date=DateTime.Now.AddDays(30), Location="Dammam" },
+    };
+}
+
+<h3>Upcoming Events</h3>
+<div class="d-flex flex-wrap">
+    @foreach(var evt in events)
+    {
+        <EventCard Event="@evt" />
+    }
+</div>
